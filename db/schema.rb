@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_150140) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_151845) do
   create_table "archmages", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -25,6 +25,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_150140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer "mage_id", null: false
+    t.integer "school_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mage_id"], name: "index_memberships_on_mage_id"
+    t.index ["school_id"], name: "index_memberships_on_school_id"
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.integer "archmage_id", null: false
@@ -33,5 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_150140) do
     t.index ["archmage_id"], name: "index_schools_on_archmage_id"
   end
 
+  add_foreign_key "memberships", "mages"
+  add_foreign_key "memberships", "schools"
   add_foreign_key "schools", "archmages"
 end

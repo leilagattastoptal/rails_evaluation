@@ -1,0 +1,8 @@
+<%= form_with model: membership do |form| %>
+  <div class="field">
+    <%= form.label :school_id, 'Select one school:' %>
+    <%= form.collection_select :school_id, School.all, :id, :name %>
+  </div>
+
+  <%= form.submit 'Enroll' %>
+<% end %>

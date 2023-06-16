@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   resources :archmages do
     resources :schools
   end
-  resources :mages
+  resources :mages do
+    member do
+      patch 'enrollment'
+    end
+    resources :schools
+  end
+  resources :schools
 end

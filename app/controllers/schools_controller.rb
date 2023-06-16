@@ -2,7 +2,11 @@ class SchoolsController < ApplicationController
   before_action :set_archmage
 
   def index
-    @schools = @archmage.schools.all
+    if @archmage
+      @schools = @archmage.schools.all
+    else
+      @schools = School.all
+    end
   end
 
   def create
@@ -23,6 +27,8 @@ class SchoolsController < ApplicationController
   end
 
   def set_archmage
-    @archmage = Archmage.find(params[:archmage_id])
+    if params[:archmage_id]
+      @archmage = Archmage.find(params[:archmage_id])
+    end
   end 
 end

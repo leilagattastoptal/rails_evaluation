@@ -1,1 +1,22 @@
 <h1> Schools </h1>
+
+<% if @schools.length > 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schools.each do |school| %>
+        <tr>
+          <td><%= school.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No schools found.</p>
+<% end %>
+<br>

@@ -3,9 +3,11 @@ class MagesController < ApplicationController
 
   def index
     @mages = Mage.all
+    @memberships = Membership.all
   end
 
   def show
+    @schools = School.all
   end
   
   def new
@@ -42,6 +44,10 @@ class MagesController < ApplicationController
 
   def mage_params
     params.require(:mage).permit(:name, :elemental_power)
+  end
+
+  def membership_params
+    params.require(:membership).permit(:mage_id, :school_id)
   end
 
   def set_mage

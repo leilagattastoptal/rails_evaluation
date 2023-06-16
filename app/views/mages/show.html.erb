@@ -2,7 +2,7 @@
 <h4><%= @mage.name %></h4>
 <p><%= @mage.elemental_power %></p>
 
-<div style="display: flex" >
+<div style="display: flex; margin-bottom: 50px" >
   <%= button_to edit_mage_path(@mage), method: :get, class:"btn btn-outline-primary" do %>
                 <i class="fa fa-pencil"></i> Edit
                 <% end %>
