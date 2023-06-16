@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= school.name %>
+</p>
+
+<p>
+  <%= link_to "Delete School", [school.archmage, school], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+</p>
