@@ -1,0 +1,20 @@
+<br>
+<h4><%= @mage.name %></h4>
+<p><%= @mage.elemental_power %></p>
+
+<div style="display: flex" >
+  <%= button_to edit_mage_path(@mage), method: :get, class:"btn btn-outline-primary" do %>
+                <i class="fa fa-pencil"></i> Edit
+                <% end %>
+ 
+  <%= button_to mage_path(@mage), method: :delete, data: {
+                    turbo_confirm: "Are you sure?"
+                  }, style:"margin-left: 30px", class:"btn btn-danger" do %>
+                <i class="fa fa-trash"></i> Delete
+                <% end %>     
+                
+  <%= button_to mages_path, method: :get, style:"margin-left: 30px", class:"btn btn-secondary" do %>
+                <i class="fa-solid fa-arrow-left"></i> Back to Mages
+                <% end %>
+  
+</div>

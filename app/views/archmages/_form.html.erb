@@ -1,0 +1,21 @@
+<%= form_with model: archmage do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% archmage.errors.full_messages_for(:name).each do |message| %>
+      <div style="color: red;" ><%= message %></div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_area :title %>
+    <% archmage.errors.full_messages_for(:title).each do |message| %>
+      <div style="color: red;" ><%= message %></div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

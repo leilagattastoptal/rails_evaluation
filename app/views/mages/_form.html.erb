@@ -1,0 +1,18 @@
+<%= form_with model: mage do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% mage.errors.full_messages_for(:name).each do |message| %>
+      <div style="color: red;" ><%= message %></div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :elemental_power %><br>
+    <%= form.select :elemental_power, ['Fire', 'Water', 'Earth', 'Air'], selected: mage.elemental_power, include_blank: true %>    
+  </div>
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
